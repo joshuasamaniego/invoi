@@ -3,15 +3,27 @@ import styled from '@emotion/styled';
 import bg from '../assets/login-background-invoi.png'
 import invoiLogo from '../assets/invoi-combined-shape.png';
 import btnGoogle from '../assets/btn-google-signin-dark.png';
+import firebase from '../firebase';
+import 'firebase/auth';
 
 function Login() {
+    const handleLogin = async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const results = await firebase
+          .auth()
+          .signInWithPopup(provider)
+          .catch(err => console.log(err));
+
+        console.log(results.user.displayName);
+    }
+
     return (
         <Background className='login__container'>
             <InvoiBackground>
                 <img src={invoiLogo} alt="blue circle 1/6 missing from the top"/>
                 <h1>invoi</h1>
             </InvoiBackground>
-            <img src={btnGoogle} alt="sign in with google button"/>
+            <img src={btnGoogle} alt="sign in with google button" onClick={() => handleLogin()}/>
         </Background>
     )
 }

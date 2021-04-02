@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 import Login from './components/Login';
+import ContextProvider from "./userContext";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <ContextProvider>
+      <div className="App">
+        <Login />
+      </div>
+    </ContextProvider>
   );
 }
 
