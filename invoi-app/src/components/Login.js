@@ -29,7 +29,7 @@ const Background = styled.div`
     justify-content: center;
 
     img {
-        margin-top: 1.5%;
+        margin-top: 2%;
     }
     img:hover {
         cursor: pointer;
